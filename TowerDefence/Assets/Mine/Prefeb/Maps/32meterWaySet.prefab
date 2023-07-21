@@ -338,6 +338,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6390528601548317122, guid: f1f740023879be244a149067037b5bd3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8919362761577803505, guid: f1f740023879be244a149067037b5bd3, type: 3}
       propertyPath: m_Name
       value: 4meterWaySet (8)
