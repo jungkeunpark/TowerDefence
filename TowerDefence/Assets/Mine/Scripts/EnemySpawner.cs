@@ -6,18 +6,15 @@ using static UnityEngine.GraphicsBuffer;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public float spawnRateMin = 0.5f;
-    public float spawnRateMax = 3f;
     public int enemylist;
 
-    private float spawnRate = default;
+    public float spawnRate = default;
     private float timeAfterSpawn = default;
     private bool isAllClear = true;
-    private float spawnerSpeed = 3f;
+    private float spawnerSpeed = 0.5f;
     private Rigidbody spawner = default;
 
-    private bool gotoLeft = default;
-    private bool gotoRight = default;
+
 
     private float respawnTimer = default;
     private float respawnRate = default;
@@ -26,7 +23,6 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         timeAfterSpawn = 0f;
-        spawnRate = Random.Range(spawnRateMin, spawnRateMax);
         spawner = GetComponent<Rigidbody>();
 
     }
@@ -49,8 +45,7 @@ public class EnemySpawner : MonoBehaviour
 
                     GameObject enemy = Instantiate(enemyPrefab, transform.position, transform.rotation);
 
-                    spawnRate = spawnRateMin;
-                    enemylist += 1;
+                        enemylist += 1;
 
                 }
             }
@@ -72,34 +67,34 @@ public class EnemySpawner : MonoBehaviour
                     isAllClear = true;
 
                 }
-                respawnRate = 3f;
+                respawnRate = 0.5f;
             }
 
         }
-        if (transform.position.x <= -4)
-        {
-            gotoRight = true;
-            gotoLeft = false;
-        }
-        else if (transform.position.x >= 4)
-        {
-            gotoLeft = true;
-            gotoRight = false;
-        }
-        if (gotoRight)
-        {
-            Vector3 moveSpawner = new Vector3(spawnerSpeed, 0f, 0f);
-            spawner.velocity = moveSpawner;
-            //Debug.Log("오른쪽으로가는중");
+        //if (transform.position.x <= -4)
+        //{
+        //    gotoRight = true;
+        //    gotoLeft = false;
+        //}
+        //else if (transform.position.x >= 4)
+        //{
+        //    gotoLeft = true;
+        //    gotoRight = false;
+        //}
+        //if (gotoRight)
+        //{
+        //    Vector3 moveSpawner = new Vector3(spawnerSpeed, 0f, 0f);
+        //    spawner.velocity = moveSpawner;
+        //    //Debug.Log("오른쪽으로가는중");
 
-        }
-        else if (gotoLeft)
-        {
-            Vector3 moveSpawner = new Vector3(-spawnerSpeed, 0f, 0f);
-            spawner.velocity = moveSpawner;
-            //Debug.Log("왼쪽으로가는중");
+        //}
+        //else if (gotoLeft)
+        //{
+        //    Vector3 moveSpawner = new Vector3(-spawnerSpeed, 0f, 0f);
+        //    spawner.velocity = moveSpawner;
+        //    //Debug.Log("왼쪽으로가는중");
 
-        }
+        //}
 
 
     }

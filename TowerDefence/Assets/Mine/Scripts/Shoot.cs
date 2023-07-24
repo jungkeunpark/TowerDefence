@@ -3,34 +3,31 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
     public GameObject bulletPrefab = default;
-
-
-    private Transform target = default;
     private float spawnRate = default;
     private float timeAfterSpawn = default;
-    // Start is called before the first frame update
+
+    private Transform target = default;
+
     void Start()
     {
-        timeAfterSpawn = 0f;
 
-        target = FindObjectOfType<EnemyMove>().transform;
+        timeAfterSpawn = 0f;
+        spawnRate = 0.5f;
+        
 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        timeAfterSpawn += Time.deltaTime;
+        target = FindObjectOfType<EnemyMove>().transform;
 
-        if (timeAfterSpawn >= spawnRate)
-        {
-            timeAfterSpawn = 0f;
+        
+
 
             GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
 
             bullet.transform.LookAt(target);
             transform.LookAt(target);
-
-        }
+        
     }
 }

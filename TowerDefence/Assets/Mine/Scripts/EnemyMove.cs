@@ -2,40 +2,45 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
 {
-    public float moveSpeed = default;
-    public float moveSpeedX = default;
+    private float moveSpeedz = default;
+    private float moveSpeedX = default;
+    private float enemyHp = default;
     public Rigidbody enemyRigid = default;
-    public BoxCollider boxCollider = default;
+    public float stage = default;
+    
     void Start()
     {
         enemyRigid = GetComponent<Rigidbody>();
         moveSpeedX = 0f;
+        moveSpeedz = 100f;
+        enemyHp = stage * stage;
     }
 
     private void Update()
     {
-       
 
 
 
 
-        Vector3 enemyVelocity = new Vector3(moveSpeedX, 0f, moveSpeed);
+
+        Vector3 enemyVelocity = new Vector3(moveSpeedX, 0f, moveSpeedz);
 
         enemyRigid.velocity = enemyVelocity;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (enemyRigid != null)
-        {
-            enemyRigid.velocity = Vector3.zero;
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (enemyRigid != null)s
+    //    {
+    //        enemyRigid.velocity = Vector3.zero;
 
-        }
-    }
+    //    }
+    //}
 
     private void OnTriggerEnter(Collider other)
     {
@@ -46,7 +51,7 @@ public class EnemyMove : MonoBehaviour
         {
             
             enemyRigid.velocity = Vector3.zero;
-            moveSpeed = 0f;
+            moveSpeedz = 0f;
             moveSpeedX = -100f;
             enemyRigid.transform.Rotate(0, enemyRigid.transform.rotation.y + 270, 0);
         }
@@ -55,7 +60,7 @@ public class EnemyMove : MonoBehaviour
         {
 
             enemyRigid.velocity = Vector3.zero;
-            moveSpeed = -100f;
+            moveSpeedz = -100f;
             moveSpeedX = 0f;
             enemyRigid.transform.Rotate(0, enemyRigid.transform.rotation.y + 270, 0);
         }
@@ -63,7 +68,7 @@ public class EnemyMove : MonoBehaviour
         {
 
             enemyRigid.velocity = Vector3.zero;
-            moveSpeed = 0f;
+            moveSpeedz = 0f;
             moveSpeedX = 100f;
             enemyRigid.transform.Rotate(0, enemyRigid.transform.rotation.y + 270, 0);
         }
@@ -71,7 +76,7 @@ public class EnemyMove : MonoBehaviour
         {
 
             enemyRigid.velocity = Vector3.zero;
-            moveSpeed = 100f;
+            moveSpeedz = 100f;
             moveSpeedX = 0f;
             enemyRigid.transform.Rotate(0, enemyRigid.transform.rotation.y + 270, 0);
         }
@@ -79,7 +84,7 @@ public class EnemyMove : MonoBehaviour
         {
 
             enemyRigid.velocity = Vector3.zero;
-            moveSpeed = 0f;
+            moveSpeedz = 0f;
             moveSpeedX = -100f;
             enemyRigid.transform.Rotate(0, enemyRigid.transform.rotation.y + 270, 0);
         }
@@ -87,6 +92,8 @@ public class EnemyMove : MonoBehaviour
 
 
     public void Die()
-    { }
+    {
+        
+    }
 
 }
