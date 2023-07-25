@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
 
     public float speed = default;
     private Rigidbody rigid = default;
-    private float Damage = 10;
+    public int Damage = default;
     
 
     void Start()
@@ -15,7 +15,6 @@ public class Bullet : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
         rigid.velocity = transform.forward * speed;
         
-        //Destroy(gameObject,3.0f);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -23,6 +22,15 @@ public class Bullet : MonoBehaviour
         if (other.tag.Equals("Enemy"))
         {
             EnemyMove enemyMove = other.GetComponent<EnemyMove>();
+
+            if(enemyMove != null ) 
+            {
+                enemyMove.EnemyHp -= Damage;
+            }
+            else if(enemyMove.EnemyHp -Damage < 0)
+            {
+                enemyMove.Die();
+            }
         }
     }
 }

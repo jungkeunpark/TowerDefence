@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Security.Cryptography;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -9,16 +10,20 @@ public class EnemyMove : MonoBehaviour
 {
     private float moveSpeedz = default;
     private float moveSpeedX = default;
-    private float enemyHp = default;
+    public float EnemyHp = default;
     public Rigidbody enemyRigid = default;
-    public float stage = default;
+    private float stage = default;
+    public int price = default;
+    
     
     void Start()
     {
+        stage = GameManager.instance.stage;
         enemyRigid = GetComponent<Rigidbody>();
         moveSpeedX = 0f;
         moveSpeedz = 100f;
-        enemyHp = stage * stage;
+        EnemyHp = stage * stage;
+        
     }
 
     private void Update()
@@ -33,14 +38,6 @@ public class EnemyMove : MonoBehaviour
         enemyRigid.velocity = enemyVelocity;
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (enemyRigid != null)s
-    //    {
-    //        enemyRigid.velocity = Vector3.zero;
-
-    //    }
-    //}
 
     private void OnTriggerEnter(Collider other)
     {
@@ -93,7 +90,8 @@ public class EnemyMove : MonoBehaviour
 
     public void Die()
     {
-        
+        GameManager.instance.gamemoney += price;
+        gameObject.SetActive(false);
     }
 
 }
