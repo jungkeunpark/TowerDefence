@@ -10,9 +10,9 @@ public class EnemyMove : MonoBehaviour
 {
     private float moveSpeedz = default;
     private float moveSpeedX = default;
-    public float EnemyHp = default;
+    public int EnemyHp = default;
     public Rigidbody enemyRigid = default;
-    private float stage = default;
+    private int stage = default;
     public int price = default;
     
     

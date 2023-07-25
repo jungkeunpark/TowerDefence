@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     public float stageTime = default;
     private bool isGameOver = default;
     public float gamescore = 0;
-    public int gamemoney = 50;
+    public int gamemoney = default;
     public int stage = 1;
     public int monsternum = default;
     private const string BestScoreKey = "BestScore";

@@ -67,7 +67,6 @@ public class EnemySpawner : MonoBehaviour
         }
         else if (stage2monster < 30 && GameManager.instance.stage == 2)
         {
-            Debug.Log("들어왔니?");
             stagemonster = 0;
             if (timeAfterSpawn >= spawnRate)
             {

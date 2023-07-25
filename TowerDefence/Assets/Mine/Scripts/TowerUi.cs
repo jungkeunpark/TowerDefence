@@ -53,6 +53,7 @@ public class TowerUi : MonoBehaviour
             {
                 canon.transform.position = previousCanonPosition;
             }
+            GameManager.instance.gamemoney -= 10;
 
         }
         if(draggable)

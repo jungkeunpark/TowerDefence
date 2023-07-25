@@ -909,7 +909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f8734637817244595fe8aff9df1479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHp: 160
+  EnemyHp: 12000
   enemyRigid: {fileID: 381501077892824832}
   price: 0
 --- !u!1 &7511425344165935062

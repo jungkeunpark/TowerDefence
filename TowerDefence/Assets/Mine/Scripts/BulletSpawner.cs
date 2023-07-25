@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class BulletSpawner : MonoBehaviour
 {
@@ -12,6 +7,7 @@ public class BulletSpawner : MonoBehaviour
 
     private Transform target;
     private float timeAfterSpawn;
+    private bool isFire = false;
 
     private void Start()
     {
@@ -23,12 +19,33 @@ public class BulletSpawner : MonoBehaviour
     private void Update()
     {
         timeAfterSpawn += Time.deltaTime;
-        if(timeAfterSpawn >= spawnRate)
+
+        if (timeAfterSpawn >= spawnRate)
         {
-            timeAfterSpawn = 0f;
+
             GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
             bullet.transform.LookAt(target);
-            spawnRate = 0.5f;
+            timeAfterSpawn = 0;
         }
+
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+
+
+        Debug.LogFormat("적이 내콜라이더에 들어왔냐?");
+        isFire = true;
+
+
+
+    }
+    private void OnTriggerExit(Collider other)
+    {
+
+
+        isFire = false;
+        Debug.LogFormat("적이 내콜라이더에서 나갔냐?");
+
+
     }
 }
