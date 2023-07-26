@@ -13,38 +13,44 @@ public class BulletSpawner : MonoBehaviour
     {
         timeAfterSpawn = 0f;
         spawnRate = 0.5f;
-        target = FindObjectOfType<EnemyMove>().transform;
+        target = null;
     }
 
     private void Update()
     {
-        timeAfterSpawn += Time.deltaTime;
-
-        if (timeAfterSpawn >= spawnRate)
+        if (target != null & isFire)
         {
 
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-            bullet.transform.LookAt(target);
-            timeAfterSpawn = 0;
+            timeAfterSpawn += Time.deltaTime;
+
+            if (timeAfterSpawn >= spawnRate)
+            {
+
+                GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+                bullet.transform.LookAt(target);
+                timeAfterSpawn = 0;
+            }
         }
 
     }
     private void OnTriggerEnter(Collider other)
     {
-
-
-        Debug.LogFormat("적이 내콜라이더에 들어왔냐?");
-        isFire = true;
-
-
+        if (other.CompareTag("Enemy"))
+        {
+            target = other.transform; // 플레이어가 콜라이더에 들어오면 타겟 설정
+            isFire = true; // 공격 상태로 변경
+        }
 
     }
     private void OnTriggerExit(Collider other)
     {
 
 
-        isFire = false;
-        Debug.LogFormat("적이 내콜라이더에서 나갔냐?");
+        if (other.CompareTag("Enemy"))
+        {
+            isFire = false; // 플레이어가 콜라이더를 나가면 공격 상태 해제
+            target = null; // 타겟도 null로 초기화
+        }
 
 
     }

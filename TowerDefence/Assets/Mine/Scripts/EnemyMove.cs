@@ -12,17 +12,15 @@ public class EnemyMove : MonoBehaviour
     private float moveSpeedX = default;
     public int EnemyHp = default;
     public Rigidbody enemyRigid = default;
-    private int stage = default;
     public int price = default;
     
     
     void Start()
     {
-        stage = GameManager.instance.stage;
         enemyRigid = GetComponent<Rigidbody>();
         moveSpeedX = 0f;
         moveSpeedz = 100f;
-        EnemyHp = stage * stage;
+        
         
     }
 

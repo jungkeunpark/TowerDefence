@@ -164,6 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyHp: 20
   enemyRigid: {fileID: -780752155334667346}
+  price: 3
 --- !u!1 &7815429136448894572
 GameObject:
   m_ObjectHideFlags: 0

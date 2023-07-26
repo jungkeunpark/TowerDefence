@@ -13,8 +13,8 @@ public class TowerRandom : MonoBehaviour
     private Vector3 previousCanonPosition;
     public BoxCollider BackMapCollider;
     private GameObject canon;
-    public int Gamemoney;
-    public float Price = default;
+    public int Gamemoney= default;
+    public int Price = default;
 
 
     public bool draggable;
@@ -32,21 +32,33 @@ public class TowerRandom : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit hit = CastRay();
 
-            if(hit.transform == transform)
+            if (GameManager.instance.gamemoney > Price)
             {
-                canon = Instantiate(cannonPrefab, Vector3.zero, Quaternion.identity);
+                GameManager.instance.gamemoney -= Price;
+                RaycastHit hit = CastRay();
 
-                draggable = true;
+                if (hit.transform == transform)
+                {
+                    canon = Instantiate(cannonPrefab, Vector3.zero, Quaternion.identity);
 
-                previousCanonPosition = canon.transform.position;
+                    draggable = true;
+
+                    previousCanonPosition = canon.transform.position;
+                }
+            }
+            else if (GameManager.instance.gamemoney < Price)
+            {
+
             }
         }
 
         if(Input.GetMouseButtonUp(0))
         {
-            draggable = false;
+            
+                
+                draggable = false;
+            
 
 
         }

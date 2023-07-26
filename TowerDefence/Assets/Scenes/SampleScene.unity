@@ -484,7 +484,7 @@ MonoBehaviour:
   cannonPrefab: {fileID: 7114342375551025957, guid: 1ecf95fd0c0f65f40a90569e163499a8, type: 3}
   BackMapCollider: {fileID: 0}
   Gamemoney: 0
-  Price: 80
+  Price: 0
   DESC: {fileID: 1394221975}
   draggable: 0
 --- !u!1 &107479362
@@ -667,7 +667,7 @@ MonoBehaviour:
   Bestscore: {fileID: 1867410712}
   stageTime: 0
   gamescore: 0
-  gamemoney: 50
+  gamemoney: 11
   stage: 1
   monsternum: 0
 --- !u!1 &151821358
@@ -775,7 +775,7 @@ MonoBehaviour:
   cannonPrefab: {fileID: 265291880779740514, guid: 04083e9202bbd4c4b9211365fd3580e8, type: 3}
   BackMapCollider: {fileID: 110846392}
   Gamemoney: 0
-  Price: 0
+  Price: 10
   draggable: 0
 --- !u!1001 &164126913
 PrefabInstance:
@@ -1646,7 +1646,7 @@ MonoBehaviour:
   cannonPrefab: {fileID: 7275392452486551310, guid: 88cd3ca936fcab3448a4156f63951c32, type: 3}
   BackMapCollider: {fileID: 0}
   Gamemoney: 0
-  Price: 160
+  Price: 0
   DESC: {fileID: 1731955705}
   draggable: 0
 --- !u!1 &462042797 stripped
@@ -2516,7 +2516,7 @@ MonoBehaviour:
   cannonPrefab: {fileID: 6638889490637075924, guid: 19aca1addb0e40f45be440377d93ca0b, type: 3}
   BackMapCollider: {fileID: 0}
   Gamemoney: 0
-  Price: 10
+  Price: 0
   DESC: {fileID: 1802605594}
   draggable: 0
 --- !u!65 &571368835
@@ -4025,7 +4025,7 @@ MonoBehaviour:
   cannonPrefab: {fileID: 2627433267648225562, guid: 69742b841e4ce53469407f0053e8511b, type: 3}
   BackMapCollider: {fileID: 0}
   Gamemoney: 0
-  Price: 20
+  Price: 0
   DESC: {fileID: 681253081}
   draggable: 0
 --- !u!1 &963194225
@@ -8609,7 +8609,7 @@ MonoBehaviour:
   cannonPrefab: {fileID: 491151984336559475, guid: a7274c11e52d6d04fa69cb6d17a4905b, type: 3}
   BackMapCollider: {fileID: 0}
   Gamemoney: 0
-  Price: 40
+  Price: 0
   DESC: {fileID: 1070173021}
   draggable: 0
 --- !u!1001 &1838000716

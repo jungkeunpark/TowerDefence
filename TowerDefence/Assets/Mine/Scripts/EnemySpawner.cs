@@ -14,9 +14,7 @@ public class EnemySpawner : MonoBehaviour
     public float spawnRate = default;
 
     private float timeAfterSpawn = default;
-    private bool isAllClear = true;
-    private float spawnerSpeed = 0.5f;
-    private Rigidbody spawner = default;
+    public Rigidbody spawner = default;
     private int stage = default;
 
     private int stagemonster;
@@ -28,16 +26,11 @@ public class EnemySpawner : MonoBehaviour
     private int stage6monster;
     private int stage7monster;
     private int stage8Boss;
-    private float nextstage = default;
-    private float respawnTimer = default;
-    private float respawnRate = default;
 
     // Start is called before the first frame update
     void Start()
     {
         stage = GameManager.instance.stage;
-        nextstage = GameManager.instance.stageTime;
-        //monster = GameManager.instance.monsternum;
         timeAfterSpawn = 0f;
         spawner = GetComponent<Rigidbody>();
 

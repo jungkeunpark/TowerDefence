@@ -14,7 +14,7 @@ public class TowerUi : MonoBehaviour
     public BoxCollider BackMapCollider;
     private GameObject canon;
     public int Gamemoney;
-    public float Price = default;
+    public int Price = default;
     public GameObject DESC;
 
 
@@ -25,6 +25,7 @@ public class TowerUi : MonoBehaviour
 
     void Start()
     {
+        Gamemoney = GameManager.instance.gamemoney;
     }
 
     // Update is called once per frame
@@ -33,6 +34,7 @@ public class TowerUi : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            
             RaycastHit hit = CastRay();
 
             if(hit.transform == transform)
@@ -42,18 +44,18 @@ public class TowerUi : MonoBehaviour
                 draggable = true;
 
                 previousCanonPosition = canon.transform.position;
+
             }
         }
 
         if(Input.GetMouseButtonUp(0))
         {
             draggable = false;
-
+            Gamemoney -= Price;
             if (!BackMapCollider.bounds.Contains(canon.transform.position))
             {
                 canon.transform.position = previousCanonPosition;
             }
-            GameManager.instance.gamemoney -= 10;
 
         }
         if(draggable)
